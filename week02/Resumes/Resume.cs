@@ -10,7 +10,6 @@ public class Resume
     // variable _jobs
 
     public void Display()
-
     {
         Console.WriteLine ($"Name: {_name}");
         Console.WriteLine ("Jobs: ");
