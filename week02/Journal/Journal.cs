@@ -1,3 +1,5 @@
+//Addiing a method to delete an entry
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -91,9 +93,10 @@ public class Journal
 
     public void DisplayAll()
     {
-        foreach (Entry entry in _entries)
+        for (int i = 0; i < _entries.Count; i++)
         {
-            entry.Display();
+            Console.WriteLine($"{i}.");
+            _entries[i].Display();
             Console.WriteLine ("*************************");
         }
     }
@@ -110,5 +113,18 @@ public class Journal
         newEntry._userEntry = Console.ReadLine();
 
         _entries.Add(newEntry);
+    }
+
+    public void DeleteEntry(int index)
+    {
+        if (index >= 0 && index < _entries.Count)
+        {
+            _entries.RemoveAt(index);
+            Console.WriteLine("Entry deleted.");
+        }
+        else
+        {
+            Console.WriteLine("Invalid entry number, try again.");
+        }
     }
 }

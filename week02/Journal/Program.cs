@@ -1,4 +1,7 @@
+//Adding an extra option in the Menu to delete an entry
+
 using System;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 class Program
@@ -18,6 +21,7 @@ class Program
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
+            Console.WriteLine("6. Delete an entry");
             Console.WriteLine("What would you like to do? ");
             string choice = Console.ReadLine();
         
@@ -41,6 +45,14 @@ class Program
             else if (choice == "5")
             {
                 running =  false;
+            }
+            else if (choice == "6")
+            {
+                journal.DisplayAll();
+                Console.Write("Which entry number do you want to delete from your Journal? ");
+                int index = int.Parse(Console.ReadLine());
+
+                journal.DeleteEntry(index);
             }
             else
             {
